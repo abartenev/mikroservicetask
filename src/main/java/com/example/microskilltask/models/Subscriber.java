@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Entity
 @SoftDelete
-@Table(name = "subscribers")
+@Table(name = "subscribers",uniqueConstraints = {@UniqueConstraint(name = "subscribers_addr_uc",columnNames = {"addr_id"})})
 @Data
 public class Subscriber {
     @Id
