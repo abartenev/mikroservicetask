@@ -19,6 +19,7 @@ public class Subscriber {
     @Column
     @Check(name = "subscribers_fio_chk", constraints = "FIO IS NOT NULL")
     private String fio;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
+    @JoinColumn(name = "addr_id", referencedColumnName = "addr_id", foreignKey = @ForeignKey(name = "subscribers_address_fk", value = ConstraintMode.CONSTRAINT))
     private Address addr_id;
 }
