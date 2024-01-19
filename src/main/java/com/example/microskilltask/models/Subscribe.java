@@ -2,6 +2,7 @@ package com.example.microskilltask.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.Check;
 import org.hibernate.annotations.SoftDelete;
 
 import java.util.UUID;
@@ -15,6 +16,7 @@ public class Subscribe {
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private UUID sub_id;
     @Column
+    @Check(name = "subscribes_name_chk", constraints = "NAME IS NOT NULL")
     private String name;
     @Column
     private String description;
